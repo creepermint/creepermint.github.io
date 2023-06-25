@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>linear-regression on Outlier Blog</title>
+    <link>https://outlierblog.me/tags/linear-regression/</link>
+    <description>Recent content in linear-regression on Outlier Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 28 May 2023 16:24:34 +0800</lastBuildDate><atom:link href="https://outlierblog.me/tags/linear-regression/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Understanding Linear Regression with Python</title>
+      <link>https://outlierblog.me/posts/linear_regression_essential/</link>
+      <pubDate>Sun, 28 May 2023 16:24:34 +0800</pubDate>
+      
+      <guid>https://outlierblog.me/posts/linear_regression_essential/</guid>
+      <description>Linear regression is a fundamental statistical modeling technique used to understand and analyze the relationship between a dependent variable and one or more independent variables. It assumes a linear relationship between those variables, aiming to find the best-fit line representing this relationship. In this blog post, we will explore the fundamental concepts of linear regression, including its assumptions and evaluation metrics. Understanding these aspects is crucial for building reliable and accurate regression models.</description>
+    </item>
+    
+  </channel>
+</rss>

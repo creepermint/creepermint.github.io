@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>clustering on Outlier Blog</title>
+    <link>https://outlierblog.me/tags/clustering/</link>
+    <description>Recent content in clustering on Outlier Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 29 May 2023 11:31:18 +0800</lastBuildDate><atom:link href="https://outlierblog.me/tags/clustering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using Elbow Method to Determine Optimal Number of Clusters</title>
+      <link>https://outlierblog.me/posts/elbow_method/</link>
+      <pubDate>Mon, 29 May 2023 11:31:18 +0800</pubDate>
+      
+      <guid>https://outlierblog.me/posts/elbow_method/</guid>
+      <description>The elbow method is an important tool in the field of machine learning, particularly for data clustering. It provides a way to determine the optimal number of clusters for a clustering algorithm, which is crucial for effectively modeling and understanding complex data. The basic idea behind the elbow method is that increasing the number of clusters will result in a decrease in the within-cluster sum of squared distances (WCSS). Still, at some point, the decrease will no longer be significant enough to justify the increase in the number of clusters.</description>
+    </item>
+    
+  </channel>
+</rss>

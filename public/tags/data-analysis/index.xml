@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>data-analysis on Outlier Blog</title>
+    <link>https://outlierblog.me/tags/data-analysis/</link>
+    <description>Recent content in data-analysis on Outlier Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 29 May 2023 11:31:09 +0800</lastBuildDate><atom:link href="https://outlierblog.me/tags/data-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Addressing Class Imbalance in Classification</title>
+      <link>https://outlierblog.me/posts/class_imbalance/</link>
+      <pubDate>Mon, 29 May 2023 11:31:09 +0800</pubDate>
+      
+      <guid>https://outlierblog.me/posts/class_imbalance/</guid>
+      <description>Class imbalance in binary classification refers to a situation where one class (minority class) has significantly fewer instances compared to the other class (majority class). For instance, in a customer attrition prediction task, the minority class could be customers who churned or left, while the majority class is customers who stayed with the company.
+Class imbalance can pose a significant challenge in machine learning, particularly for binary classification tasks because most machine learning algorithms assume that the class distribution is balanced.</description>
+    </item>
+    
+    <item>
+      <title>Addressing Outliers For Resilient Machine Learning Models</title>
+      <link>https://outlierblog.me/posts/addressing_outlier/</link>
+      <pubDate>Mon, 29 May 2023 11:30:14 +0800</pubDate>
+      
+      <guid>https://outlierblog.me/posts/addressing_outlier/</guid>
+      <description>Imagine you’ve spent months collecting and preparing your dataset, carefully selecting features, and building a machine learning model. You’ve fine-tuned the hyperparameters, evaluated the model’s performance, and you’re feeling confident that it’s ready to make accurate predictions on new data. But as soon as you deploy the model, you start to notice some strange results. The model is making bizarre predictions that don’t seem to make sense. What went wrong? The answer may lie in outliers — those pesky data points that can wreak havoc on machine learning models.</description>
+    </item>
+    
+    <item>
+      <title>Understanding Linear Regression with Python</title>
+      <link>https://outlierblog.me/posts/linear_regression_essential/</link>
+      <pubDate>Sun, 28 May 2023 16:24:34 +0800</pubDate>
+      
+      <guid>https://outlierblog.me/posts/linear_regression_essential/</guid>
+      <description>Linear regression is a fundamental statistical modeling technique used to understand and analyze the relationship between a dependent variable and one or more independent variables. It assumes a linear relationship between those variables, aiming to find the best-fit line representing this relationship. In this blog post, we will explore the fundamental concepts of linear regression, including its assumptions and evaluation metrics. Understanding these aspects is crucial for building reliable and accurate regression models.</description>
+    </item>
+    
+    <item>
+      <title>Exploratory Data Analysis (EDA) with Python</title>
+      <link>https://outlierblog.me/posts/eda_with_python/</link>
+      <pubDate>Sun, 28 May 2023 14:35:41 +0800</pubDate>
+      
+      <guid>https://outlierblog.me/posts/eda_with_python/</guid>
+      <description>As a data scientist, one of the most important tasks you will perform is exploring your data to gain a deeper understanding of it. This process is known as exploratory data analysis (EDA) and it involves cleaning, visualizing, and transforming data to extract insights and patterns. EDA is primarily used to provides a better understanding of data set variables and the relationships between them. It can also help determine if the statistical techniques you are considering for data analysis are appropriate.</description>
+    </item>
+    
+  </channel>
+</rss>

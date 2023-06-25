@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Data Science Essentials on Outlier Blog</title>
+    <link>https://outlierblog.me/series/data-science-essentials/</link>
+    <description>Recent content in Data Science Essentials on Outlier Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 28 May 2023 16:24:34 +0800</lastBuildDate><atom:link href="https://outlierblog.me/series/data-science-essentials/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Understanding Linear Regression with Python</title>
+      <link>https://outlierblog.me/posts/linear_regression_essential/</link>
+      <pubDate>Sun, 28 May 2023 16:24:34 +0800</pubDate>
+      
+      <guid>https://outlierblog.me/posts/linear_regression_essential/</guid>
+      <description>Linear regression is a fundamental statistical modeling technique used to understand and analyze the relationship between a dependent variable and one or more independent variables. It assumes a linear relationship between those variables, aiming to find the best-fit line representing this relationship. In this blog post, we will explore the fundamental concepts of linear regression, including its assumptions and evaluation metrics. Understanding these aspects is crucial for building reliable and accurate regression models.</description>
+    </item>
+    
+    <item>
+      <title>Exploratory Data Analysis (EDA) with Python</title>
+      <link>https://outlierblog.me/posts/eda_with_python/</link>
+      <pubDate>Sun, 28 May 2023 14:35:41 +0800</pubDate>
+      
+      <guid>https://outlierblog.me/posts/eda_with_python/</guid>
+      <description>As a data scientist, one of the most important tasks you will perform is exploring your data to gain a deeper understanding of it. This process is known as exploratory data analysis (EDA) and it involves cleaning, visualizing, and transforming data to extract insights and patterns. EDA is primarily used to provides a better understanding of data set variables and the relationships between them. It can also help determine if the statistical techniques you are considering for data analysis are appropriate.</description>
+    </item>
+    
+  </channel>
+</rss>

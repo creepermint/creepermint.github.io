@@ -1,0 +1,120 @@
+baseURL: "https://outlierblog.me/"
+title: Outlier Blog
+paginate: 8
+theme: PaperMod
+enableRobotsTXT: true
+googleAnalytics: G-018FG8S7HC
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+  env: production
+  title: Outlier Blog
+  description: ""
+  keywords: [Blog, Portfolio, PaperMod, Data Science]
+  author: Thomas Shaw
+  DateFormat: "January 2, 2006"
+  defaultTheme: dark 
+  disableThemeToggle: false
+  ShowReadingTime: true
+  ShowShareButtons: false
+  ShowPostNavLinks: true
+  ShowCodeCopyButtons: true
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: true
+  tocopen: false
+  disableAnchoredHeadings: true
+  math: true
+  taxonomies:
+    tag: tags
+    series: series
+
+  label:
+    text: "Outlier Blog"
+    icon: /apple-touch-icon.png
+    iconHeight: 35
+
+  # home-info mode
+  homeInfoParams:
+    Title: "\U0001F44B Welcome to Outlier Blog"
+    Content: Hi, I'm Shaw. I write about data science, machine learning, programming, and everything in between.
+
+  socialIcons: 
+    - name: twitter
+      url: "https://twitter.com/thomas_s_shaw"
+    - name: medium
+      url: "https://thomassshaw.medium.com/"
+    - name: github
+      url: "https://github.com/thomassshaw"
+    - name: kofi
+      url: "https://ko-fi.com/thomassshaw"
+
+  analytics: # TODO
+    google:
+      SiteVerificationTag: "XYZabc"
+
+  cover:
+    hidden: true # hide everywhere but not in structured data
+    hiddenInList: true # hide on list pages and home
+    hiddenInSingle: true # hide on single page
+
+  # for search
+  # https://fusejs.io/api/options.html
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
+
+menu:
+  main:
+    - identifier: posts
+      name: Posts
+      url: /
+      weight: 10
+    - identifier: archives
+      name: Archive
+      url: /archives/
+      weight: 20
+    - identifier: notebooks
+      name: Notebooks
+      url: /notebooks/
+      weight: 30
+    - identifier: projects
+      name: Projects
+      url: /Projects/
+      weight: 40
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 50
+
+pygmentsUseClasses: true
+markup:
+    highlight:
+        # anchorLineNos: true
+        codeFences: false
+        guessSyntax: true
+        lineNos: false
+        # noClasses: false
+        style: catppuccin-latte
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # is necessary
+
+taxonomies:
+  tag: tags
+  series: series

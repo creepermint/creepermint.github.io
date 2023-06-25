@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>classification on Outlier Blog</title>
+    <link>https://outlierblog.me/tags/classification/</link>
+    <description>Recent content in classification on Outlier Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 29 May 2023 11:31:09 +0800</lastBuildDate><atom:link href="https://outlierblog.me/tags/classification/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Addressing Class Imbalance in Classification</title>
+      <link>https://outlierblog.me/posts/class_imbalance/</link>
+      <pubDate>Mon, 29 May 2023 11:31:09 +0800</pubDate>
+      
+      <guid>https://outlierblog.me/posts/class_imbalance/</guid>
+      <description>Class imbalance in binary classification refers to a situation where one class (minority class) has significantly fewer instances compared to the other class (majority class). For instance, in a customer attrition prediction task, the minority class could be customers who churned or left, while the majority class is customers who stayed with the company.
+Class imbalance can pose a significant challenge in machine learning, particularly for binary classification tasks because most machine learning algorithms assume that the class distribution is balanced.</description>
+    </item>
+    
+  </channel>
+</rss>

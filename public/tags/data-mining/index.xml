@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>data mining on Outlier Blog</title>
     <link>https://outlierblog.me/tags/data-mining/</link>
     <description>Recent content in data mining on Outlier Blog</description>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     <lastBuildDate>Sun, 25 Jun 2023 11:40:44 +0800</lastBuildDate><atom:link href="https://outlierblog.me/tags/data-mining/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Customer Segmentation using K-means Clustering in Python</title>

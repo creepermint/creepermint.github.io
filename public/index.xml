@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Outlier Blog</title>
     <link>https://outlierblog.me/</link>
     <description>Recent content on Outlier Blog</description>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     <lastBuildDate>Sun, 25 Jun 2023 11:40:44 +0800</lastBuildDate><atom:link href="https://outlierblog.me/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Customer Segmentation using K-means Clustering in Python</title>
@@ -14,6 +15,16 @@
       <guid>https://outlierblog.me/posts/customer_segmentation/</guid>
       <description>Introduction In this ever-evolving landscape of business and marketing, understanding customers has become more critical than ever before. The ability to unlock the secrets behind their preferences, behaviors, and needs holds the key to delivering personalized experiences and fostering long-lasting relationships. But how can we effectively make sense of a massive pool of customer data?
 That&amp;rsquo;s where customer segmentation comes into play. It is a fundamental aspect of marketing that involves dividing customers into distinct groups or segments based on their shared characteristics, behaviors, or needs.</description>
+    </item>
+    
+    <item>
+      <title>Customer Segmentation using K-means Clustering in Python</title>
+      <link>https://outlierblog.me/posts/key_concepts_rl/</link>
+      <pubDate>Sun, 25 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://outlierblog.me/posts/key_concepts_rl/</guid>
+      <description>Reinforcement Learning (RL) revolves around the interactions between an agent and its environment. The environment represents the world where the agent lives and takes action. At each step, the agent observes some information about the environment, makes decisions, and affects the environment through its actions.
+The agent also receives rewards from the environment, which indicate how well it is doing. The agent&amp;rsquo;s ultimate goal is to maximize the total rewards it receives, called return.</description>
     </item>
     
     <item>
@@ -32,10 +43,26 @@ Market Basket Analysis is especially useful in industries like retail, e-commerc
       <pubDate>Sun, 29 Jan 2023 00:00:00 +0000</pubDate>
       
       <guid>https://outlierblog.me/projects/</guid>
-      <description>These are all of my data science projects I&amp;#39;ve worked on or I&amp;#39;m currently working on.</description>
+      <description></description>
     </item>
     
+    <item>
+      <title>Archive</title>
+      <link>https://outlierblog.me/archives/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://outlierblog.me/archives/</guid>
+      <description>archives</description>
+    </item>
     
+    <item>
+      <title>Search</title>
+      <link>https://outlierblog.me/search/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://outlierblog.me/search/</guid>
+      <description>search</description>
+    </item>
     
   </channel>
 </rss>

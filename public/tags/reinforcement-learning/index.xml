@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>reinforcement-learning on Outlier Blog</title>
     <link>https://outlierblog.me/tags/reinforcement-learning/</link>
     <description>Recent content in reinforcement-learning on Outlier Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 25 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://outlierblog.me/tags/reinforcement-learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Aug 2023 14:21:44 +0800</lastBuildDate><atom:link href="https://outlierblog.me/tags/reinforcement-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Customer Segmentation using K-means Clustering in Python</title>
+      <title>Multi-Armed Bandit Problem and Its Solutions</title>
+      <link>https://outlierblog.me/posts/multibandits/</link>
+      <pubDate>Wed, 02 Aug 2023 14:21:44 +0800</pubDate>
+      
+      <guid>https://outlierblog.me/posts/multibandits/</guid>
+      <description>In probability theory and decision-making under uncertainty, the multi-armed bandit problem presents a challenge where a limited set of resources must be wisely allocated among competing choices to maximize the expected gain. This is a classic reinforcement learning problem that exemplifies the exploration-exploitation tradeoff dilemma.
+Imagine a gambler facing a row of slot machines (also called one-armed bandits). The gambler must make a series of decisions: which machines to play, how many times to play each machine, the order in which to play them, and whether to stick with the current machine or switch to another one.</description>
+    </item>
+    
+    <item>
+      <title>Key Concepts In (Deep) Reinforcement Learning</title>
       <link>https://outlierblog.me/posts/key_concepts_rl/</link>
       <pubDate>Sun, 25 Jun 2023 00:00:00 +0000</pubDate>
       

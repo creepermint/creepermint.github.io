@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Outlier Blog</title>
     <link>https://outlierblog.me/</link>
     <description>Recent content on Outlier Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 25 Jun 2023 11:40:44 +0800</lastBuildDate><atom:link href="https://outlierblog.me/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Aug 2023 14:21:44 +0800</lastBuildDate><atom:link href="https://outlierblog.me/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Customer Segmentation using K-means Clustering in Python</title>
-      <link>https://outlierblog.me/posts/customer_segmentation/</link>
-      <pubDate>Sun, 25 Jun 2023 11:40:44 +0800</pubDate>
+      <title>Multi-Armed Bandit Problem and Its Solutions</title>
+      <link>https://outlierblog.me/posts/multibandits/</link>
+      <pubDate>Wed, 02 Aug 2023 14:21:44 +0800</pubDate>
       
-      <guid>https://outlierblog.me/posts/customer_segmentation/</guid>
-      <description>Introduction In this ever-evolving landscape of business and marketing, understanding customers has become more critical than ever before. The ability to unlock the secrets behind their preferences, behaviors, and needs holds the key to delivering personalized experiences and fostering long-lasting relationships. But how can we effectively make sense of a massive pool of customer data?
-That&amp;rsquo;s where customer segmentation comes into play. It is a fundamental aspect of marketing that involves dividing customers into distinct groups or segments based on their shared characteristics, behaviors, or needs.</description>
+      <guid>https://outlierblog.me/posts/multibandits/</guid>
+      <description>In probability theory and decision-making under uncertainty, the multi-armed bandit problem presents a challenge where a limited set of resources must be wisely allocated among competing choices to maximize the expected gain. This is a classic reinforcement learning problem that exemplifies the exploration-exploitation tradeoff dilemma.
+Imagine a gambler facing a row of slot machines (also called one-armed bandits). The gambler must make a series of decisions: which machines to play, how many times to play each machine, the order in which to play them, and whether to stick with the current machine or switch to another one.</description>
     </item>
     
     <item>
-      <title>Customer Segmentation using K-means Clustering in Python</title>
+      <title>Key Concepts In (Deep) Reinforcement Learning</title>
       <link>https://outlierblog.me/posts/key_concepts_rl/</link>
       <pubDate>Sun, 25 Jun 2023 00:00:00 +0000</pubDate>
       
@@ -28,41 +28,15 @@ The agent also receives rewards from the environment, which indicate how well it
     </item>
     
     <item>
-      <title>Market Basket Analysis With Apriori Algorithm</title>
-      <link>https://outlierblog.me/posts/market_basket_analysis/</link>
-      <pubDate>Mon, 29 May 2023 11:31:18 +0800</pubDate>
-      
-      <guid>https://outlierblog.me/posts/market_basket_analysis/</guid>
-      <description>Market Basket Analysis is a powerful data mining technique that enables businesses to gain insights into customer purchasing patterns. By analyzing large datasets, such as purchase history, businesses can reveal product groupings and customer preferences. This technique became even more accessible with the adoption of electronic point-of-sale (POS) systems, which made it easier to collect transactional data and analyze customer behavior.
-Market Basket Analysis is especially useful in industries like retail, e-commerce, and grocery, where customer behavior is complex and influenced by various factors.</description>
-    </item>
-    
-    <item>
       <title>Projects</title>
       <link>https://outlierblog.me/projects/</link>
       <pubDate>Sun, 29 Jan 2023 00:00:00 +0000</pubDate>
       
       <guid>https://outlierblog.me/projects/</guid>
-      <description></description>
+      <description>These are all of my data science projects I&amp;#39;ve worked on or I&amp;#39;m currently working on.</description>
     </item>
     
-    <item>
-      <title>Archive</title>
-      <link>https://outlierblog.me/archives/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://outlierblog.me/archives/</guid>
-      <description>archives</description>
-    </item>
     
-    <item>
-      <title>Search</title>
-      <link>https://outlierblog.me/search/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://outlierblog.me/search/</guid>
-      <description>search</description>
-    </item>
     
   </channel>
 </rss>

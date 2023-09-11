@@ -6,7 +6,16 @@
     <description>Recent content on Outlier Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 02 Aug 2023 14:21:44 +0800</lastBuildDate><atom:link href="https://outlierblog.me/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Sep 2023 12:36:24 +0800</lastBuildDate><atom:link href="https://outlierblog.me/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Monte Carlo Method</title>
+      <link>https://outlierblog.me/posts/monte_carlo_method/</link>
+      <pubDate>Mon, 11 Sep 2023 12:36:24 +0800</pubDate>
+      
+      <guid>https://outlierblog.me/posts/monte_carlo_method/</guid>
+      <description>The Monte Carlo method represents a reinforcement learning technique used to estimate the value of a state or state-action pair by averaging the returns achieved from those states or state-actions. Unlike traditional methods that rely on iterative updates, Monte Carlo methods learn from complete episodes, making them well-suited for tasks with a defined endpoint. These methods accumulate knowledge from experience, collecting sequences of states, actions, and rewards from real or simulated interactions with an environment.</description>
+    </item>
+    
     <item>
       <title>Multi-Armed Bandit Problem and Its Solutions</title>
       <link>https://outlierblog.me/posts/multibandits/</link>

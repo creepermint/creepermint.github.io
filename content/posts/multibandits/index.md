@@ -1,6 +1,6 @@
 ---
 title: "Multi-Armed Bandit Problem and Its Solutions"
-date: 2023-08-02T14:21:44+08:00
+date: 2023-10-08T14:21:44+08:00
 draft: false
 tags: 
 - "reinforcement-learning"
@@ -8,116 +8,200 @@ tags:
 math: mathjax
 ---
 
-In probability theory and decision-making under uncertainty, the multi-armed bandit problem presents a challenge where a limited set of resources must be wisely allocated among competing choices to maximize the expected gain. This is a classic reinforcement learning problem that exemplifies the exploration-exploitation tradeoff dilemma. 
+In probability theory and decision-making under uncertainty, the multi-armed bandit problem presents a challenge where a limited set of resources must be wisely allocated among competing choices to maximize the expected gain. This is a classic reinforcement learning problem that perfectly embodies the *exploration vs exploitation dilemma*.
 
-Imagine a gambler facing a row of slot machines (also called [one-armed bandits](https://en.wiktionary.org/wiki/one-armed_bandit)). The gambler must make a series of decisions: which machines to play, how many times to play each machine, the order in which to play them, and whether to stick with the current machine or switch to another one. In this setup, each machine provides a random reward from an unknown probability distribution. The primary objective of the gambler (or agent) is to maximize the total reward obtained over a series of plays. 
+Imagine we are facing a row of slot machines (also called [one-armed bandits](https://en.wiktionary.org/wiki/one-armed_bandit)). We must make a series of decisions: which arms to play, how many times to play each arm, the order in which to play them, and whether to stick with the current arm or switch to another one. In this setup, each arm provides a random reward from an unknown probability distribution. Our primary objective is to maximize the total reward obtained over a series of plays.
 
-At each trial, the agent faces a crucial tradeoff: exploitation or exploration. In exploration, the agent tries out different arms to gather information about their rewards and estimate their true potential. The more exploration is done, the better the agent can learn about each arm's payoffs. In contrast, exploitation involves making decisions based on the current knowledge to choose the arm expected to yield the highest reward.
+As we do not know the probability distributions, a straightforward strategy is to simply select the arm given a uniform distribution; that is, select each arm with the same probability. Over time, we will eventually manage to estimate the true reward probability according to the [law of large numbers](https://en.wikipedia.org/wiki/Law_of_large_numbers). But here's the catch: we need to spend enormous time trying out every action. Why not we only focus on the most promising actions given the reward we received so far?
 
-Effectively balancing exploration and exploitation is the key challenge to maximize cumulative rewards over time. If the agent exploits too much, it may miss out on higher-reward arms. On the other hand, excessive exploration could lead to missed opportunities to gain higher rewards from known better arms.
 
-To address the multi-armed bandit problem, various strategies and algorithms have been developed, including epsilon-greedy, optimistic initialization, upper confidence bound (UCB), Thompson sampling, and gradient bandit methods. Each of these approaches aims to tackle the exploration-exploitation dilemma and optimize the agent's decision-making.
+## Exploration vs Exploitation
 
-## Epsilon-Greedy
+We want to play only the good actions; so just keep playing the actions that have given us the best reward so far. However, at first, we do not have information to tell us what the best actions are. We need strategies that *exploit* what we think are the best actions so far, but still *explore* other actions.
 
-The action value is estimated according to past experience by averaging the rewards associated with the target action $a$ that we have observed so far (up to the current time step t).
+Now, the big question is: how much should we exploit and how much should we explore? This is known as the exploration vs exploitation dilemma. It's tricky because we don't have all the information we need. We want to gather enough data to make smart decisions overall while keeping the risks in check. Exploitation means using what we know works best, while exploration involves taking some risks to learn about actions we're not familiar with. 
 
-$$
-\hat{Q}\_t(a) = \frac{1}{N\_t(a)} \sum\_{\tau=1}^t r\_\tau \mathbb{1}[a\_\tau = a]
-$$
+In the context of the multi-armed bandit problem, we want exploration strategies that minimize the regret, which is the expected loss from not taking the best action. A zero-regret strategy is a strategy where the average regret of each round approaches zero as the number of rounds approaches infinity. This means, a zero-regret strategy will converge to an optimal strategy given enough rounds.
 
-where $\mathbb{1}$ is a binary indicator function and $N_t(a)$ is how many times the action a has been selected so far, $N_t(a) = \sum_{\tau=1}^t \mathbb{1}[a_\tau = a]$.
 
-The simplest action that the agent can make is to select one of the actions with the highest estimated value, that is, one of the greedy actions defined as:
+## Bernoulli Bandit
+
+We are going to implement several exploration strategies for the simplest multi-armed bandit problem: Bernoulli Bandit. The bandit has $K$ actions. The action produces a reward, $r=1$, with probability $0 \le \theta_k \le 1$, which is unknown to the agent, but fixed over time. The objective of the agent is to minimize regret over a fixed number of action selections, $T$.
 
 $$
-A_t = \arg \max_a \hat{Q}_t(a)
+\rho = T \theta^* - \sum_{t=1}^T \theta_{\alpha_t}
 $$
 
-The greedy action prioritizes exploiting existing knowledge to achieve the maximum immediate reward and does not invest any time in sampling other actions to explore if they could yield better results.
-
-One simple alternative to this is to take greedy action most of the time, but with a small probability (say $\epsilon$), select random action instead. This method is known as the epsilon-greedy method.
-
 $$
-A_t = \begin{cases}
-    \arg \max_a \hat{Q}_t(a) & \text{with probability 1 -  } \epsilon \\\
-    \text{a random action} & \text{with probability } \epsilon \\
-\end{cases}
+\text{where } \theta^* = \max_k{\theta_k} \text{; and } \\\theta_{\alpha_t} \text{ corresponds to the chosen action } \alpha_t \text{ at each step}
 $$
 
-## Optimistic Initialization
+```python
+class BernoulliBandit:
+    def __init__(self, n_actions=5):
+        self._probs = np.random.random(n_actions)
 
-The idea behind this method is to initialize the estimated action value, $Q_0(a)$ to a high value, higher than their actual estimated action value. The agent then updates action value by incremental averaging, starting with $N_0(a) \ge 0$ for all $a \in \mathcal{A}$,
+    @property
+    def action_count(self):
+        return len(self._probs)
 
-$$
-\hat{Q}_t(A_t) = \hat{Q}\_{t-1}(A_t) + {1 \over N_t(a)}(r_t - \hat{Q}\_{t-1}(A_t)), \text{ and}
-$$
-$$
-\hat{Q}_t(a) = \hat{Q}\_{t-1}(a) \text{ for all } a \ne A_t 
-$$
+    def pull(self, action):
+        if np.any(np.random.random() > self._probs[action]):
+            return 0.0
+        return 1.0
 
-This method promotes systematic exploration in the initial stages. When the agent chooses actions initially, the rewards received are lower than the starting estimates. Consequently, the agent switches to other actions as it becomes "disappointed" with the received rewards. This leads to repeated trials of all actions before the value estimates eventually converge.
+    def optimal_reward(self):
+        return np.max(self._probs)
+
+    def action_value(self, action):
+        return self._probs[action]
+    
+    def step(self):
+        pass
+
+    def reset(self):
+        pass
+```
+
+The implementation for each strategy that will be discuss inherits from the `AbstractAgent` class:
+
+```python
+class AbstractAgent(metaclass=ABCMeta):
+    def init_actions(self, n_actions):
+        self._successes = np.zeros(n_actions)
+        self._failures = np.zeros(n_actions)
+        self._total_pulls = 0
+
+    @abstractmethod
+    def get_action(self):
+        pass
+
+    def update(self, action, reward):
+        self._total_pulls += 1
+        if reward == 1:
+            self._successes[action] += 1
+        else:
+            self._failures[action] += 1
+
+    @property
+    def name(self):
+        return self.__class__.__name__
+```
+
+## Epsilon-greedy
+
+The epsilon-greedy strategy is a simple and effective way to balance exploration and exploitation. The parameter $\epsilon \in [0,1]$ controls how much the agent explores and how much will it exploit. 
+
+According to this strategy, with a small probability $\epsilon$, the agent takes a random action, but most of the time, with probability $1 - \epsilon$, the agent will pick the best action learned so far. The best $\epsilon$ value depends on the particular problem, but typically, values around 0.05 to 0.1 work very well.
+
+```python
+class EpsilonGreedyAgent(AbstractAgent):
+    def __init__(self, epsilon=0.01):
+        self._epsilon = epsilon
+
+    def get_action(self):
+        if np.random.random() < self._epsilon:
+            return np.random.randint(len(self._successes))
+        else:
+            return np.argmax(self._successes / (self._successes + self._failures + 0.1))
+```
+
+The following plot shows the regret for each step, averaged over 10 trials.
+
+![](images/epsilon_greedy.png)
+
+Higher values of epsilon tend to have a higher regret over time. Higher value means more exploration, so the agent spends more time exploring less valuable actions, even though it already has a good estimate of the value of actions. In this particular problem, the epsilon value of 0.05 to 0.1 is a reasonable choice.
+
 
 ## Upper Confidence Bound
 
-Exploration is important because we are not always sure how accurate our action-value estimates are. Greedy method choose an action that looks best at time $t$, but there might be better options among the other actions. Epsilon-greedy forces us to try non-greedy actions, but it does so randomly, without considering which non-greedy actions are almost as good as the greedy ones or which ones have more uncertainty.
+The epsilon-greedy strategy has no preference for actions and is inefficient in exploration. The agent might explore a bad action which is already been confirmed as a bad action in the past. It would be better to select among actions that are uncertain or have the potential to be optimal. One can come up with an idea of index for each action that represents optimality and uncertainty at the same time. One efficient way to do it is to use the UCB1 algorithm.
 
-A better approach would be to choose non-greedy actions based on their potential to be the best choices. This means considering how close their estimates are to the highest possible values and how uncertain those estimates are.
-
-One effective way of doing this is to select actions according to:
+In each iteration, the agent assesses each available action's potential by calculating a weight ($w_k$) that combines estimates of both optimality and uncertainty.
 
 $$
-A_t = \arg \max_a [Q_t(a) + c \sqrt{\ln t \over N_t(a)}]
+w_k = {\alpha_k \over \alpha_k + \beta_k} + \sqrt{2 \log t \over \alpha_k + \beta_k}
 $$
 
-where $\ln t$ denotes the natural logarithm of t, and the number $c \gt 0$ control degree of exploration.
+The first term ${\alpha_k \over \alpha_k + \beta_k}$ represents the estimated success probability (optimality). The second term $\sqrt{2 \log t \over \alpha_k + \beta_k}$ represents the uncertainty, encouraging exploration.
 
-The square-root term is a measure of the uncertainty in the estimate of action $a$’s value. Each time action $a$ selected, the uncertainty decrease and, conversely, each time action other than $a$ is selected, the uncertainty increase. The use of the natural logarithm means that the increments become progressively smaller over time, but they have no upper limit. As a result, all actions will eventually be chosen, but actions with lower value estimates or those that have been frequently selected before will be picked less frequently as time goes on.
+After calculating weights for all actions, the agent then will choose with the maximum weight.
+
+```python
+class UCBAgent(AbstractAgent):
+    def get_action(self):
+        pulls = self._successes + self._failures + 0.1
+        return np.argmax(self._successes / pulls + np.sqrt(2 * np.log(self._total_pulls + 0.1) / pulls))
+```
+
+In a static environment, epsilon-greedy might outperform UCB1 initially because epsilon-greedy is straightforward and tends to quickly focus on the arm with the highest estimated mean reward. UCB1, in contrast, might spend more time exploring and being cautious due to its confidence bounds.
+
+![](images/ucb_epsilon.png)
+
+But, in many real problems, the underlying probability distributions are not static. For example, suppose we employ a recommendation system for streaming content, using multi-armed bandit approach to decide which shows to suggest to users. In this scenario, the reward is measured by user engagement, specifically whether they watch the suggested show. The viewing preferences of our audience may evolve over time, influenced by factors such as trending genres, seasonal changes, and more. 
+
+Here is an example of a nonstationary bandit where the reward probabilities change over time.
+
+```python
+class DriftingBandit(BernoulliBandit):
+    def __init__(self, n_actions=5, gamma=0.01):
+        super().__init__(n_actions)
+
+        self._gamma = gamma
+
+        self._successes = None
+        self._failures = None
+        self._steps = 0
+
+        self.reset()
+
+    def reset(self):
+        self._successes = np.zeros(self.action_count) + 1.0
+        self._failures = np.zeros(self.action_count) + 1.0
+        self._steps = 0
+
+    def step(self):
+        action = np.random.randint(self.action_count)
+        reward = self.pull(action)
+        self._step(action, reward)
+
+    def _step(self, action, reward):
+        self._successes = self._successes * (1 - self._gamma) + self._gamma
+        self._failures = self._failures * (1 - self._gamma) + self._gamma
+        self._steps += 1
+
+        self._successes[action] += reward
+        self._failures[action] += 1.0 - reward
+
+        self._probs = np.random.beta(self._successes, self._failures)
+```
+
+![](images/drift.png)
+
+We can see from the plot how the reward probabilities change over time.
+
+![](images/epsilon_ucb.png)
+
+UCB1 shines in a changing environment because of its ability to adapt. As the distribution of rewards changes over time, UCB1 continues to explore arms with uncertain estimates, preventing it from getting stuck on a suboptimal arm.
 
 ## Thompson Sampling
 
-Thompson sampling model the uncertainty in the reward distributions of arms using probability distributions, particularly the Beta distribution. Each arm is associated with a Beta distribution that represents the agent's belief or uncertainty about the true mean reward of that arm. 
+Unlike the UCB1 algorithm, Thompson Sampling incorporates the actual distribution of rewards by sampling from a Beta distribution for each action. The Beta distribution is a flexible choice, as it is defined on the interval $[0, 1]$, making it suitable for representing probabilities.
 
-The algorithm work as follow:
+In each iteration, the algorithm samples from a Beta distribution for each available action. These samples provide estimates of the true success probability for each action. The algorithm then selects the action with the highest sampled value. This approach allows Thompson Sampling to adapt to the true underlying distribution of rewards and make more informed decisions over time.
 
-1. For each arm, initialize the parameters of the Beta distribution based on some prior belief. The choice of prior can influence the algorithm's behavior, but common choices are uniform or optimistic priors. For example, we can set α = 1 and β = 1, where we expect the reward probability to be 50% but we are not very confident.
-2. At each time step, sample an expected reward from each arm's  $\text{Beta}(\alpha_i, \beta_i)$ distribution independently. the best action is selected among samples: $a_t = \arg\max \tilde{Q}(a)$
-3. The sampled reward is used to update the parameters of the corresponding Beta distribution for that arm, incorporating the new information.
-    
-    $$
-    \alpha_i \leftarrow \alpha_i + r_t \mathbb{1}[a_t = a_i] 
-    $$
-    $$
-    \beta_i \leftarrow \beta_i + (1-r_t) \mathbb{1}[a_t = a_i]
-    $$
-    
-4. Continue the process by selecting arms, pulling, observing rewards, and updating the Beta distributions at each time step.
+```python
+class ThompsonSamplingAgent(AbstractAgent):
+    def get_action(self):
+        return np.argmax(np.random.beta(self._successes + 1, self._failures + 1))
+```
 
-Thompson sampling implements the idea of [probability matching](https://en.wikipedia.org/wiki/Probability_matching). Because its reward estimations $\tilde{Q}$ are sampled from posterior distributions, each of these probabilities is equivalent to the probability that the corresponding action is optimal, conditioned on observed history.
+From these comparison plots, we can see that Thompson Sampling performs really well compared to epsilon-greedy and UCB1.
 
-## Gradient Bandit Algorithm
+![](images/all_static.png)
 
-So far, we have explored methods that estimate action values and use those estimates to select actions. Another approach is to consider learning a numerical preference for each action $a$, which we denote as $H_t(a)$. A higher preference value corresponds to a more frequent selection of the action, but the preference itself does not hold any direct reward interpretation. 
+In a static environment, the algorithm continuously refines its probability distributions based on observed outcomes. As it converges to the true underlying distribution, the algorithm becomes adept at exploiting the arm with the highest expected reward. 
 
-Initially, all action preferences are set equally, ensuring that all actions have an equal probability of being chosen. After each step (where action $A_t$ is selected, and reward $R_t$ is received), the action preferences are updated by:
+![](images/all_drift.png)
 
-$$
-H_{t+1}(A_t) = H_t(A_t) + \alpha(R_t - \bar{R_t})(1 - \pi_t(A_t)), \text{ and} 
-$$
-$$
-H_{t+1}(a) = H_t(a) - \alpha(R_t, -\bar{R_t})\pi_t(a),\text{ for all } \ a \ne A_t
-$$
-
-where $\pi_t(a) = {e^{H_t(a)} \over \sum_{b=1}^ke^{H_t(b)}}$ is the probability of taking action $a$ at time $t$, $\alpha \gt 0$ is a step-size parameter, and $\bar{R_t} \in \mathbb{R}$ is the average of all the rewards up to but not including time $t$.
-
-If the reward ($R_t$) is higher than the baseline ($\bar{R_t}$), the probability of taking $A_t$ in the future increase and vice versa. The non-selected actions move in the opposite direction.
-
-## References
-
-[1] RL Course by David Silver - Lecture 9: [Exploration and Exploitation](https://youtu.be/sGuiWX07sKw)
-
-[2] Stanford CME 241 slide - [Multi-Armed Bandits: Exploration versus Exploitation](https://stanford.edu/~ashlearn/RLForFinanceBook/MultiArmedBandits.pdf)
-
-[3] Reinforcement Learning: An Introduction by Richard S. Sutton and Andrew G. Barto
-
-[4] Lilian Weng - [The Multi-Armed Bandit Problem and Its Solutions](https://lilianweng.github.io/posts/2018-01-23-multi-armed-bandit/)
+In a dynamic environment, its ability to update beliefs in a Bayesian manner allows it to swiftly adapt to changes in the reward distribution.

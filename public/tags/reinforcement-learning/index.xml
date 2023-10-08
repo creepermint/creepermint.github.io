@@ -6,24 +6,15 @@
     <description>Recent content in reinforcement-learning on Outlier Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 11 Sep 2023 12:36:24 +0800</lastBuildDate><atom:link href="https://outlierblog.me/tags/reinforcement-learning/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Monte Carlo Method</title>
-      <link>https://outlierblog.me/posts/monte_carlo_method/</link>
-      <pubDate>Mon, 11 Sep 2023 12:36:24 +0800</pubDate>
-      
-      <guid>https://outlierblog.me/posts/monte_carlo_method/</guid>
-      <description>The Monte Carlo method represents a reinforcement learning technique used to estimate the value of a state or state-action pair by averaging the returns achieved from those states or state-actions. Unlike traditional methods that rely on iterative updates, Monte Carlo methods learn from complete episodes, making them well-suited for tasks with a defined endpoint. These methods accumulate knowledge from experience, collecting sequences of states, actions, and rewards from real or simulated interactions with an environment.</description>
-    </item>
-    
+    <lastBuildDate>Sun, 08 Oct 2023 14:21:44 +0800</lastBuildDate><atom:link href="https://outlierblog.me/tags/reinforcement-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Multi-Armed Bandit Problem and Its Solutions</title>
       <link>https://outlierblog.me/posts/multibandits/</link>
-      <pubDate>Wed, 02 Aug 2023 14:21:44 +0800</pubDate>
+      <pubDate>Sun, 08 Oct 2023 14:21:44 +0800</pubDate>
       
       <guid>https://outlierblog.me/posts/multibandits/</guid>
-      <description>In probability theory and decision-making under uncertainty, the multi-armed bandit problem presents a challenge where a limited set of resources must be wisely allocated among competing choices to maximize the expected gain. This is a classic reinforcement learning problem that exemplifies the exploration-exploitation tradeoff dilemma.
-Imagine a gambler facing a row of slot machines (also called one-armed bandits). The gambler must make a series of decisions: which machines to play, how many times to play each machine, the order in which to play them, and whether to stick with the current machine or switch to another one.</description>
+      <description>In probability theory and decision-making under uncertainty, the multi-armed bandit problem presents a challenge where a limited set of resources must be wisely allocated among competing choices to maximize the expected gain. This is a classic reinforcement learning problem that perfectly embodies the exploration vs exploitation dilemma.
+Imagine we are facing a row of slot machines (also called one-armed bandits). We must make a series of decisions: which arms to play, how many times to play each arm, the order in which to play them, and whether to stick with the current arm or switch to another one.</description>
     </item>
     
     <item>
